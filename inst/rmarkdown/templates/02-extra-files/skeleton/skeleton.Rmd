@@ -1,6 +1,10 @@
 ---
 title: "Untitled"
-author: "Graham Rush"
+author:
+  - name: Graham Rush                              # can list separate items
+    # affiliation: Leeds Beckett University      # same amountt of indentation needed
+ # - name: Name_2
+    # affiliaion: University of SomeOtherPlace
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   html_document:
@@ -10,15 +14,63 @@ output:
     css: styles.css
 ---
 
-<img src="logo.png" width=200 height=100 style="position:absolute;top:0px;right:100px;" />
+<img src="logo.png" width=200 style="position:absolute;top:20px;right:300px;" />
 
 ## About
 
-This template expands on the minimal example, and includes a logo and custom CSS. 
+Update this to provide instructions for the code.
 
-## Creating Directory
+## Clear the environment
 
-If you look at the file `inst/rmarkdown/templates/02-extra-files/templates.yaml`, you will see that the following line:
+```{r, include=FALSE}
+rm(list = ls())
+```
+
+## Customising the features
+
+The custom CSS has been used to change the style of the tables in the document.
+
+```{r}
+knitr::kable(mtcars[1:5, 1:5], caption = "A custom table style")
+```
+
+## load up the packages required
+
+Add any packages to the `packages` object
+
+```{r, include=FALSE}
+packages <- c('clipr', 'ARTofR')
+
+for (package in packages) {
+  if (!require(package, character.only = TRUE)) {
+    message(paste("Installing package:", package))
+    install.packages(package, dependencies = TRUE) # Install if not available
+    library(package, character.only = TRUE)        # Load after installation
+  } else {
+    message(paste("Loaded package:", package))
+  }
+}
+```
+## Sourcing external R Files
+
+The files should be saved in the `R` file. See https://bookdown.org/yihui/rmarkdown-cookbook/source-script.html for information
+
+```{r, include=FALSE, load-multiple-scripts}
+# # 1. List only the scripts you want (just the filenames, no path)
+# selected <- c("script1.R", "script2.R", "script3.R")
+# 
+# # 2. Set the folder so we get "R/script1.R", etc.
+# scripts <- file.path("R", selected)
+# 
+# # 3. Source each one into your knit environment
+# for (f in scripts) {
+#   source(f, local = knitr::knit_global())
+# }
+```
+
+## Creating a directory 
+
+If you look at the file `inst/rmarkdown/templates/02-extra-files/templates.yaml`, you will see the following line:
 
 ```
 create_dir: true

@@ -1,3 +1,23 @@
+/* Author name */
+.author {
+  font-size: 18px; color: #753bbd;
+}
+
+/* Date */
+.date {
+  font-size: 16px;
+}
+
+/* Main body text */
+body {
+  font-size: 16px;
+}
+
+/* Table of contents */
+#TOC {
+  font-size: 14px;
+}
+
 .flat-table {
   display: block;
   font-family: sans-serif;
