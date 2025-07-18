@@ -1,6 +1,6 @@
 ---
 title: "Untitled"
-author: "Your Name"
+author: "Graham Rush"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   html_document:
