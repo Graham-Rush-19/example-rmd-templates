@@ -36,9 +36,9 @@ knitr::kable(mtcars[1:5, 1:5], caption = "A custom table style")
 
 ## load up the packages required
 
-Add any packages to the `packages` object
+Add any packages to the `packages` object. Add `include=FALSE` to remove the code from the report
 
-```{r, include=FALSE}
+```{r, load_functions} 
 packages <- c('clipr', 'ARTofR')
 
 for (package in packages) {
